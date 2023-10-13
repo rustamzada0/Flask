@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    <title> REGISTER </title>
+{% endblock title %}
+
+
+
+{% block content %}
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Register</h1>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Input Credentials For Register</span></h2>
+        </div>
+        <div class="row justify-content-center px-xl-5">
+            <div class="col-lg-4 mb-5">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <form method="POST">
+                        {{form.csrf_token}}
+                        <div class="control-group">
+                            <input type="text" class="form-control" id="name" placeholder="Full name"
+                                required="required" data-validation-required-message="Please enter your full name" {{form.full_name}}
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email"
+                                required="required" data-validation-required-message="Please enter your email" {{form.email}}
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class="flashes">
+                                {% for message in messages %}
+                                <li> {{message}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        {% endwith %}
+                        <div class="control-group">
+                            <input type="password" class="form-control" id="password" placeholder="Password"
+                                required="required" data-validation-required-message="Please enter your password" {{form.password}}
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="control-group">
+                            <input type="password" class="form-control" id="password" placeholder="Confirm password"
+                                required="required" data-validation-required-message="Please enter your password" {{form.confirm_password}}
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+    <script>
+            alert("Bu İstifadəçi adı istifadə olunub");
+    </script>
+
+{% endblock %}
